@@ -1,0 +1,29 @@
+*{margin: 0;
+padding: 0;
+box-sizing: border-box;
+border: 1px black solid;
+}
+
+.header{
+    display: flex;
+    justify-content:  space-between;
+}
+.search-bar{
+    margin:20px auto;
+/*    text-align: center;*/
+}
+
+.buttons{
+    color: blue;
+    width: 400px;
+    margin: 0px 10px
+}
+
+.footers{
+    display: flex;
+   /* justify-content:  space-between;*/
+}
+.footers ,left-foot, right-foot{
+    display: flex;
+    color: blue;
+}
