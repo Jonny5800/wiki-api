@@ -10,14 +10,33 @@ function fun1() {
 btn1.addEventListener("click", fun1, () => {
   console.log(txt1);
 });
+/*********************************/
+function a() {
+  var sample = userInput.value; /*"hello world"*/
+  return sample;
+}
 
-searcher.addEventListener("click", () => {
-  console.log(userInput.value);
+var sample2 = a();
+console.log(sample2); //This prints hello world
+/*
+ *
+ ********************************/
+//console.log(rtn + "....searc val");
+searcher.addEventListener("click", function rtn() {
+  console.log(userInput.innerHTML + "......inside function");
+  //return to here
+  //return to here
+
+  return userInput.value;
 });
+console.log(searcher.value + "below funct");
 
 //WORKING random GIF from gify
 const img = document.querySelector("img");
-let searchTerm = "wave";
+
+let stringedUserInput = userInput.value.toString();
+console.log(userInput.value + "why not");
+let searchTerm = "hello";
 let giphy =
   "https://api.giphy.com/v1/gifs/translate?api_key=hwRcQwF2Fc2MiIwqGFOrXv9a2KI2ECXQ&s=";
 let giphySearch = giphy + searchTerm;
