@@ -1,7 +1,8 @@
 const txt1 = document.getElementById("tbuser");
 const btn1 = document.getElementById("btn1");
 const out1 = document.getElementById("output1");
-
+const searcher = document.getElementById("search-button");
+const userInput = document.getElementById("search-bar");
 function fun1() {
   out1.innerHTML = txt1.value;
 }
@@ -10,28 +11,17 @@ btn1.addEventListener("click", fun1, () => {
   console.log(txt1);
 });
 
-const userInput = document.getElementById("search-bar");
-console.log(userInput);
-
-document.getElementById("search-bar").addEventListener("click", () => {
+searcher.addEventListener("click", () => {
   console.log(userInput.value);
 });
 
-//<input type="button" value="submit" onclick="send()" />;
-let uname = document.querySelector("#uname");
-function send() {
-  console.log(uname.value);
-}
-// document
-//   .getElementById("search-button")
-//   .addEventListener("submit", (e) => e.preventDefault());
-// console.log(userInput.value);
-/***************
 //WORKING random GIF from gify
 const img = document.querySelector("img");
-fetch(
-  "https://api.giphy.com/v1/gifs/translate?api_key=hwRcQwF2Fc2MiIwqGFOrXv9a2KI2ECXQ&s=porsche"
-) //https://api.giphy.com/v1/gifs/translate?api_key=hwRcQwF2Fc2MiIwqGFOrXv9a2KI2ECXQ&s=dog
+let searchTerm = "wave";
+let giphy =
+  "https://api.giphy.com/v1/gifs/translate?api_key=hwRcQwF2Fc2MiIwqGFOrXv9a2KI2ECXQ&s=";
+let giphySearch = giphy + searchTerm;
+fetch(giphySearch) //https://api.giphy.com/v1/gifs/translate?api_key=hwRcQwF2Fc2MiIwqGFOrXv9a2KI2ECXQ&s=dog
   .then(function (response) {
     return response.json();
   })
