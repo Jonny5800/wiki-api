@@ -13,12 +13,21 @@
   margin: 20px auto;
   /*    text-align: center;*/
 }
+
 .output {
   font-size: 20px;
   height: 100px;
   width: 100px;
   border: red solid 1px;
 }
+
+.weather-output {
+  font-size: 20px;
+  height: 100px;
+  width: 100px;
+  border: blue solid 1px;
+}
+
 .buttons {
   color: blue;
   width: 400px;

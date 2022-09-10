@@ -1,29 +1,36 @@
 const txt1 = document.getElementById("tbuser");
 const btn1 = document.getElementById("btn1");
 const out1 = document.getElementById("output1");
+/*from vid^^*/
 const searcher = document.getElementById("search-button");
 const userInput = document.getElementById("search-bar");
+const wethOutput = document.getElementById("weather-output");
 function fun1() {
   out1.innerHTML = txt1.value;
 }
-
-btn1.addEventListener("click", fun1, () => {
-  console.log(txt1);
-});
-/*********************************/
-function a() {
-  var sample = userInput.value; /*"hello world"*/
-  return sample;
+/***************** */
+function fun1() {
+  out1.innerHTML = txt1.value;
+  console.log(txt1.value + "this is the text box value");
 }
-
-var sample2 = a();
-console.log(sample2); //This prints hello world
+btn1.addEventListener("click", fun1);
+/******************* */
+/**
+ * *
+ *
+ */
+function forWeather() {
+  wethOutput.innerHTML = userInput.value;
+  console.log(userInput.value + "....this is the text box value");
+}
+searcher.addEventListener("click", forWeather);
 /*
  *
  ********************************/
 //console.log(rtn + "....searc val");
 searcher.addEventListener("click", function rtn() {
   console.log(userInput.innerHTML + "......inside function");
+  console.log(searcher.value + "...this si searcher");
   //return to here
   //return to here
 
@@ -34,20 +41,20 @@ console.log(searcher.value + "below funct");
 //WORKING random GIF from gify
 const img = document.querySelector("img");
 
-let stringedUserInput = userInput.value.toString();
-console.log(userInput.value + "why not");
-let searchTerm = "hello";
-let giphy =
-  "https://api.giphy.com/v1/gifs/translate?api_key=hwRcQwF2Fc2MiIwqGFOrXv9a2KI2ECXQ&s=";
-let giphySearch = giphy + searchTerm;
-fetch(giphySearch) //https://api.giphy.com/v1/gifs/translate?api_key=hwRcQwF2Fc2MiIwqGFOrXv9a2KI2ECXQ&s=dog
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (response) {
-    console.log(response.data.images.original.url);
-    img.src = response.data.images.original.url;
-  });
+// let stringedUserInput = userInput.value.toString();
+// console.log(userInput.value + "why not");
+// let searchTerm = "hello";
+// let giphy =
+//   "https://api.giphy.com/v1/gifs/translate?api_key=hwRcQwF2Fc2MiIwqGFOrXv9a2KI2ECXQ&s=";
+// let giphySearch = giphy + searchTerm;
+// fetch(giphySearch) //https://api.giphy.com/v1/gifs/translate?api_key=hwRcQwF2Fc2MiIwqGFOrXv9a2KI2ECXQ&s=dog
+//   .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (response) {
+//     console.log(response.data.images.original.url);
+//     img.src = response.data.images.original.url;
+//   });
 /*********************/
 //WORKING retreive object from openWeatherMAP
 // fetch(
@@ -59,7 +66,7 @@ fetch(giphySearch) //https://api.giphy.com/v1/gifs/translate?api_key=hwRcQwF2Fc2
 .
 .
 .
-.
+
 .
 .
 .
