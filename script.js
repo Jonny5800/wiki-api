@@ -1,48 +1,62 @@
+//Non weather variables
 const txt1 = document.getElementById("tbuser");
 const btn1 = document.getElementById("btn1");
 const out1 = document.getElementById("output1");
-/*from vid^^*/
+//Weather search variables
 const searcher = document.getElementById("search-button");
 const userInput = document.getElementById("search-bar");
-const wethOutput = document.getElementById("weather-output");
+const weatherTextBoxConst = document.getElementById("weatherTextBox");
+
+// function fun1() {
+//   out1.innerHTML = txt1.value;
+// }
+
+//Non weather search function
 function fun1() {
   out1.innerHTML = txt1.value;
-}
-/***************** */
-function fun1() {
-  out1.innerHTML = txt1.value;
-  console.log(txt1.value + "this is the text box value");
+  console.log(txt1.value + "...NON weaher user input value inside text box");
 }
 btn1.addEventListener("click", fun1);
-/******************* */
-/**
- * *
- *
- */
+
+//Weather search function
 function forWeather() {
-  wethOutput.innerHTML = userInput.value;
-  console.log(userInput.value + "....this is the text box value");
+  weatherTextBoxConst.innerHTML = userInput.value;
+  logUserSearchValue();
+  joinSearchValueAndAPI();
+  //console.log(userInput.value + "....Weather user input value inside text box");
+  return weatherTextBoxConst;
 }
 searcher.addEventListener("click", forWeather);
-/*
- *
- ********************************/
-//console.log(rtn + "....searc val");
-searcher.addEventListener("click", function rtn() {
-  console.log(userInput.innerHTML + "......inside function");
-  console.log(searcher.value + "...this si searcher");
-  //return to here
-  //return to here
-
-  return userInput.value;
-});
-console.log(searcher.value + "below funct");
 
 //WORKING random GIF from gify
 const img = document.querySelector("img");
 
-// let stringedUserInput = userInput.value.toString();
-// console.log(userInput.value + "why not");
+function logUserSearchValue() {
+  //console.log(userInput.value + "...joiner");
+  // console.log(weatherTextBoxConst); //[object HTMLParagraphElement]
+  // console.log(weatherTextBoxConst.value); //undefined
+  //console.log(weatherTextBoxConst.innerHTML + "....user search value");
+}
+
+function joinSearchValueAndAPI() {
+  console.log(weatherTextBoxConst.value);
+
+  console.log(
+    "https://api.giphy.com/v1/gifs/translate?api_key=hwRcQwF2Fc2MiIwqGFOrXv9a2KI2ECXQ&s=" +
+      userInput.value
+  );
+
+  let hero =
+    "https://api.giphy.com/v1/gifs/translate?api_key=hwRcQwF2Fc2MiIwqGFOrXv9a2KI2ECXQ&s=" +
+    userInput.value;
+  printApiSearch();
+  return hero;
+}
+function printApiSearch() {
+  console.log(joinSearchValueAndAPI + "YYYYYYYY");
+}
+
+// ********DO NOT DELETE BELOW********
 // let searchTerm = "hello";
 // let giphy =
 //   "https://api.giphy.com/v1/gifs/translate?api_key=hwRcQwF2Fc2MiIwqGFOrXv9a2KI2ECXQ&s=";
@@ -55,6 +69,7 @@ const img = document.querySelector("img");
 //     console.log(response.data.images.original.url);
 //     img.src = response.data.images.original.url;
 //   });
+// ********DO NOT DELETE ABOVE**********
 /*********************/
 //WORKING retreive object from openWeatherMAP
 // fetch(
