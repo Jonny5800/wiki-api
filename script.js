@@ -20,6 +20,7 @@ function fun1() {
 
 //Weather click function
 function forWeather() {
+  weatherTextBoxConst.innerHTML = userInput.value;
   joinSearchValueAndAPI();
 }
 
