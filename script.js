@@ -6,59 +6,45 @@ const out1 = document.getElementById("output1");
 const searcher = document.getElementById("search-button");
 const userInput = document.getElementById("search-bar");
 const weatherTextBoxConst = document.getElementById("weatherTextBox");
+const searchTerm = "x";
+
+//Event listeners
+btn1.addEventListener("click", fun1);
+searcher.addEventListener("click", forWeather);
 
 //Non weather click function
 function fun1() {
   out1.innerHTML = txt1.value;
   console.log(txt1.value + "...NON weaher user input value inside text box");
 }
-btn1.addEventListener("click", fun1);
 
 //Weather click function
 function forWeather() {
-  weatherTextBoxConst.innerHTML = userInput.value;
-  logUserSearchValue();
   joinSearchValueAndAPI();
-  //console.log(userInput.value + "....Weather user input value inside text box");
-  return weatherTextBoxConst;
-}
-searcher.addEventListener("click", forWeather);
-
-function logUserSearchValue() {
-  //console.log(userInput.value + "...joiner");
-  // console.log(weatherTextBoxConst); //[object HTMLParagraphElement]
-  // console.log(weatherTextBoxConst.value); //undefined
-  //console.log(weatherTextBoxConst.innerHTML + "....user search value");
 }
 
 function joinSearchValueAndAPI() {
-  console.log(weatherTextBoxConst.value);
-
+  //Below logs the complete API string inclusing user search
   console.log(
     "https://api.giphy.com/v1/gifs/translate?api_key=hwRcQwF2Fc2MiIwqGFOrXv9a2KI2ECXQ&s=" +
       userInput.value
   );
 
-  let hero =
+  /*********** */
+  giphySearch =
     "https://api.giphy.com/v1/gifs/translate?api_key=hwRcQwF2Fc2MiIwqGFOrXv9a2KI2ECXQ&s=" +
     userInput.value;
+  /******* */
 
-  return hero;
+  return; //hero;
 }
 
-function changeTheVariable() {
-  var changeMe = userInput.value;
-  return changeMe;
-}
-
-//Weatgher click function needs to change the value of searchTerm variable OR change the whole API string for the giphy variable
-let searchChangeTrial = changeMe;
-console.log(changeMe);
+// TO DO - Weather click function needs to change the value of searchTerm variable OR change the whole API string for the giphy variable
 
 // ********DO NOT DELETE BELOW********
 //WORKING random GIF from gify
 const img = document.querySelector("img");
-let searchTerm = "hello";
+
 let giphy =
   "https://api.giphy.com/v1/gifs/translate?api_key=hwRcQwF2Fc2MiIwqGFOrXv9a2KI2ECXQ&s=";
 let giphySearch = giphy + searchTerm;
@@ -67,7 +53,7 @@ fetch(giphySearch) //https://api.giphy.com/v1/gifs/translate?api_key=hwRcQwF2Fc2
     return response.json();
   })
   .then(function (response) {
-    console.log(response.data.images.original.url);
+    //console.log(response.data.images.original.url);
     img.src = response.data.images.original.url;
   });
 // ********DO NOT DELETE ABOVE**********
