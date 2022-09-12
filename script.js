@@ -12,7 +12,14 @@ const searchTerm = "x";
 
 //Event listeners
 btn1.addEventListener("click", fun1);
+//Weather event listeners
 searcher.addEventListener("click", forWeather);
+userInput.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    // event.preventDefault(); (suggested but seems not needed)
+    document.getElementById("search-button").click();
+  }
+});
 
 //Non weather click function
 function fun1() {
