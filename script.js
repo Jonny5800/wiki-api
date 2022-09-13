@@ -43,13 +43,31 @@ function forWeather() {
       //console.log(response.data.images.original.url);
       img.src = response.data.images.original.url;
     });
+  //.catch(){} Work out how to use this as a default image/error message in case no GIF is found
 }
 
-// TO DO - Weather click function needs to change the value of searchTerm variable OR change the whole API string for the giphy variable
+//WORKING retreive object from openWeatherMAP
+fetch(
+  "http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=45965e86278e1d1806a35a380a87eeea"
+) //..................................................../*My API key - 45965e86278e1d1806a35a380a87eeea (Would hide it but its free)*/
+  .then((response) => response.json())
+  // .then((data) => console.log(data["weather"][0].description);
+  // console.log("first one"));
+  /*
+   */
+  .then(function (data) {
+    console.log(data.name);
+    console.log(data["weather"][0].description);
+    let kelvinTemp = data.main.temp;
+    let tempConversion = -273.15;
+    console.log(kelvinTemp + tempConversion + "oC");
+    console.log("Wind speed " + data.wind.speed + "mph");
+
+    console.log("cloud cover " + data.clouds.all + "%");
+  });
 
 // ********DO NOT DELETE BELOW********
 //WORKING random GIF from gify
-
 // let giphy =
 //   "https://api.giphy.com/v1/gifs/translate?api_key=hwRcQwF2Fc2MiIwqGFOrXv9a2KI2ECXQ&s=";
 // let giphySearch = giphy + searchTerm;
@@ -62,10 +80,15 @@ function forWeather() {
 //     img.src = response.data.images.original.url;
 //   });
 // ********DO NOT DELETE ABOVE**********
-/*********************/
-//WORKING retreive object from openWeatherMAP
-// fetch(
-//   "http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=45965e86278e1d1806a35a380a87eeea"
-// ) //..................................................../*My API key - 45965e86278e1d1806a35a380a87eeea (Would hide it but its free)*/
-//   .then((response) => response.json())
-//   .then((data) => console.log(data));
+
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  id: 5566,
+};
+
+console.log(person["id"]);
+
+// weather: Array(1)
+// 0: {id: 500, main: 'Rain', description: 'light rain', icon: '10d'}
+// length: 1
