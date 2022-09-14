@@ -13,7 +13,9 @@ const searchTerm = "x";
 //Event listeners
 btn1.addEventListener("click", fun1);
 //Weather event listeners
-searcher.addEventListener("click", forWeather);
+searcher.addEventListener("click", invokeGifSearch);
+searcher.addEventListener("click", fetchWeather);
+
 userInput.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
     // event.preventDefault(); (suggested but seems not needed)
@@ -28,7 +30,7 @@ function fun1() {
 }
 
 //Weather click function
-function forWeather() {
+function invokeGifSearch() {
   weatherTextBoxConst.innerHTML = userInput.value + " GIF will play";
 
   let giphySearch =
@@ -45,26 +47,63 @@ function forWeather() {
     });
   //.catch(){} Work out how to use this as a default image/error message in case no GIF is found
 }
+function fetchWeather() {
+  let location = userInput.value;
+  console.log(location + "...location");
+  let fetchString = "";
+  //   "http://api.openweathermap.org/data/2.5/weather?q" +
+  //   location +
+  //   ",uk&APPID=45965e86278e1d1806a35a380a87eeea";
 
-//WORKING retreive object from openWeatherMAP
-fetch(
-  "http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=45965e86278e1d1806a35a380a87eeea"
-) //..................................................../*My API key - 45965e86278e1d1806a35a380a87eeea (Would hide it but its free)*/
-  .then((response) => response.json())
-  // .then((data) => console.log(data["weather"][0].description);
-  // console.log("first one"));
-  /*
-   */
-  .then(function (data) {
-    console.log(data.name);
-    console.log(data["weather"][0].description);
-    let kelvinTemp = data.main.temp;
-    let tempConversion = -273.15;
-    console.log(kelvinTemp + tempConversion + "oC");
-    console.log("Wind speed " + data.wind.speed + "mph");
+  console.log(fetchString + "...fetchstring");
+  let firstBit = "http://api.openweathermap.org/data/2.5/weather?q";
+  let secondBit = location;
+  let thirdBit = ",uk&APPID=45965e86278e1d1806a35a380a87eeea";
+  let joined = firstBit.concat("", secondBit, "", thirdBit);
+  fetchString = joined;
+  console.log(joined);
+  fetch(fetchString)
+    .then((response) => response.json())
+    // .then((data) => console.log(data["weather"][0].description);
+    // console.log("first one"));
+    /*
+     */
+    .then(function (data) {
+      console.log(data.name);
+      //console.log(data["weather"][0].description);
+      let kelvinTemp = data.main.temp;
+      let tempConversion = -273.15;
+      console.log(kelvinTemp + tempConversion + "oC");
+      console.log("Wind speed " + data.wind.speed + "mph");
 
-    console.log("cloud cover " + data.clouds.all + "%");
-  });
+      console.log("cloud cover " + data.clouds.all + "%");
+      console.log("hello");
+    });
+}
+
+// //WORKING retreive object from openWeatherMAP ----------BELOW
+// fetch(
+//   "http://api.openweathermap.org/data/2.5/weather?q=edinburgh,uk&APPID=45965e86278e1d1806a35a380a87eeea"
+// ) //..................................................../*My API key - 45965e86278e1d1806a35a380a87eeea (Would hide it but its free)*/
+//   .then((response) => response.json())
+//   // .then((data) => console.log(data["weather"][0].description);
+//   // console.log("first one"));
+//   /*
+//    */
+//   .then(function (data) {
+//     console.log(data.name);
+//     console.log(data["weather"][0].description);
+//     let kelvinTemp = data.main.temp;
+//     let tempConversion = -273.15;
+//     console.log(kelvinTemp + tempConversion + "oC");
+//     console.log("Wind speed " + data.wind.speed + "mph");
+
+//     console.log("cloud cover " + data.clouds.all + "%");
+//   });
+//WORKING retreive object from openWeatherMAP ----------ABOVE
+/*
+.
+*/
 
 // ********DO NOT DELETE BELOW********
 //WORKING random GIF from gify
