@@ -56,7 +56,7 @@ function fetchWeather() {
   //   ",uk&APPID=45965e86278e1d1806a35a380a87eeea";
 
   console.log(fetchString + "...fetchstring");
-  let firstBit = "http://api.openweathermap.org/data/2.5/weather?q";
+  let firstBit = "http://api.openweathermap.org/data/2.5/weather?q=";
   let secondBit = location;
   let thirdBit = ",uk&APPID=45965e86278e1d1806a35a380a87eeea";
   let joined = firstBit.concat("", secondBit, "", thirdBit);
