@@ -6,9 +6,12 @@ const out1 = document.getElementById("output1");
 const searcher = document.getElementById("search-button");
 const userInput = document.getElementById("search-bar");
 const weatherTextBoxConst = document.getElementById("weatherTextBox");
+const cityWind = document.getElementById("city-wind");
+const cityTemp = document.getElementById("city-temp");
+const cityCloudCover = document.getElementById("city-cloud-cover");
+
 //Image related
 const img = document.querySelector("img");
-const searchTerm = "x";
 
 //Event listeners
 btn1.addEventListener("click", fun1);
@@ -31,7 +34,9 @@ function fun1() {
 
 //Weather click function
 function invokeGifSearch() {
-  weatherTextBoxConst.innerHTML = userInput.value + " GIF will play";
+  weatherTextBoxConst.innerHTML =
+    "A GIF of " + userInput.value + " will play below";
+  //cityWind.innerHTML = "wind speed mph";
 
   let giphySearch =
     "https://api.giphy.com/v1/gifs/translate?api_key=hwRcQwF2Fc2MiIwqGFOrXv9a2KI2ECXQ&s=" +
@@ -51,11 +56,7 @@ function fetchWeather() {
   let location = userInput.value;
   console.log(location + "...location");
   let fetchString = "";
-  //   "http://api.openweathermap.org/data/2.5/weather?q" +
-  //   location +
-  //   ",uk&APPID=45965e86278e1d1806a35a380a87eeea";
 
-  console.log(fetchString + "...fetchstring");
   let firstBit = "http://api.openweathermap.org/data/2.5/weather?q=";
   let secondBit = location;
   let thirdBit = ",uk&APPID=45965e86278e1d1806a35a380a87eeea";
@@ -74,7 +75,10 @@ function fetchWeather() {
       let kelvinTemp = data.main.temp;
       let tempConversion = -273.15;
       console.log(kelvinTemp + tempConversion + "oC");
-      console.log("Wind speed " + data.wind.speed + "mph");
+      cityWind.innerHTML = "Wind speed " + data.wind.speed + "mph";
+      cityTemp.innerHTML = kelvinTemp + tempConversion + "oC";
+      cityCloudCover.innerHTML = "cloud cover " + data.clouds.all + "%";
+      //cityWind.innerHTML = "wind speed aaaa";
 
       console.log("cloud cover " + data.clouds.all + "%");
       console.log("hello");
@@ -119,15 +123,3 @@ function fetchWeather() {
 //     img.src = response.data.images.original.url;
 //   });
 // ********DO NOT DELETE ABOVE**********
-
-const person = {
-  firstName: "John",
-  lastName: "Doe",
-  id: 5566,
-};
-
-console.log(person["id"]);
-
-// weather: Array(1)
-// 0: {id: 500, main: 'Rain', description: 'light rain', icon: '10d'}
-// length: 1
