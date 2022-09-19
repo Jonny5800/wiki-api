@@ -1,7 +1,19 @@
+/*
+THINGS TO ADD:
+Functionality
+ - a catch for when a place is not recognised / spelling mistake made
+ - tidy up and format code where needed
+User experience
+ - Make it look better with CSS
+ - make temp shop oC and in proper format
+ - suggetion for weather types eg rain = umbralla, sun = sunglassed etc
+ - ability to search outside of the UK
+*/
+
 //Non weather variables
-const txt1 = document.getElementById("tbuser");
-const btn1 = document.getElementById("btn1");
-const out1 = document.getElementById("output1");
+// const txt1 = document.getElementById("tbuser");
+// const btn1 = document.getElementById("btn1");
+// const out1 = document.getElementById("output1");
 //Weather search variables
 const searcher = document.getElementById("search-button");
 const userInput = document.getElementById("search-bar");
@@ -12,9 +24,13 @@ const cityCloudCover = document.getElementById("city-cloud-cover");
 
 //Image related
 const img = document.querySelector("img");
+img.onerror = (e) => {
+  e.target.src =
+    "https://giphy.com/gifs/looking-looney-tunes-searching-26n6WywJyh39n1pBu";
+};
 
 //Event listeners
-btn1.addEventListener("click", fun1);
+/*btn1.addEventListener("click", fun1);------For the click me button*/
 //Weather event listeners
 searcher.addEventListener("click", invokeGifSearch);
 searcher.addEventListener("click", fetchWeather);
@@ -27,16 +43,15 @@ userInput.addEventListener("keypress", function (event) {
 });
 
 //Non weather click function
-function fun1() {
-  out1.innerHTML = txt1.value;
-  console.log(txt1.value + "...NON weaher user input value inside text box");
-}
+// function fun1() {
+//   out1.innerHTML = txt1.value;
+//   console.log(txt1.value + "...NON weaher user input value inside text box");
+// }
 
 //Weather click function
 function invokeGifSearch() {
   weatherTextBoxConst.innerHTML =
     "A GIF of " + userInput.value + " will play below";
-  //cityWind.innerHTML = "wind speed mph";
 
   let giphySearch =
     "https://api.giphy.com/v1/gifs/translate?api_key=hwRcQwF2Fc2MiIwqGFOrXv9a2KI2ECXQ&s=" +
@@ -47,7 +62,6 @@ function invokeGifSearch() {
       return response.json();
     })
     .then(function (response) {
-      //console.log(response.data.images.original.url);
       img.src = response.data.images.original.url;
     });
   //.catch(){} Work out how to use this as a default image/error message in case no GIF is found
@@ -76,8 +90,15 @@ function fetchWeather() {
       let tempConversion = -273.15;
       console.log(kelvinTemp + tempConversion + "oC");
       cityWind.innerHTML = "Wind speed " + data.wind.speed + "mph";
-      cityTemp.innerHTML = kelvinTemp + tempConversion + "oC";
+      let temp2Decimal = kelvinTemp + tempConversion; /*+"oc"*/
+
+      let tempRounded = temp2Decimal.toFixed(2);
+      cityTemp.innerHTML = tempRounded;
+
+      //cityTemp.innerHTML = kelvinTemp + tempConversion + "oC";
+
       cityCloudCover.innerHTML = "cloud cover " + data.clouds.all + "%";
+
       //cityWind.innerHTML = "wind speed aaaa";
 
       console.log("cloud cover " + data.clouds.all + "%");
