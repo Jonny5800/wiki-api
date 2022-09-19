@@ -2,9 +2,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  border: 1px black solid;
+  /* border: 1px black solid;*/
 }
-
+.container {
+  margin: 0 auto;
+  width: 300px;
+}
 .header {
   display: flex;
   justify-content: space-between;
@@ -25,7 +28,9 @@
   font-size: 20px;
   height: 100px;
   width: 150px;
-  border: blue solid 1px;
+  /*border: blue solid 1px;*/
+  margin: 0 auto;
+  text-align: center;
 }
 
 .buttons {
@@ -36,4 +41,23 @@
 
 .image-div {
   display: flex;
+  height: 300px;
+  width: 300px;
+}
+#output-div {
+  margin: 0 auto;
+  padding: center;
+}
+#the-gif {
+  max-width: 300px;
+  align-items: center;
+  justify-content: center;
+  /*margin: 0 auto;*/
+
+  /*max-height: auto;*/
+}
+
+#search-button {
+  color: red;
+  color: blue;
 }

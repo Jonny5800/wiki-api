@@ -1,6 +1,7 @@
 /*
 THINGS TO ADD:
 Functionality
+ - fix cross origin read blocking
  - a catch for when a place is not recognised / spelling mistake made
  - tidy up and format code where needed
 User experience
@@ -24,11 +25,10 @@ const cityCloudCover = document.getElementById("city-cloud-cover");
 
 //Image related
 const img = document.querySelector("img");
-img.onerror = (e) => {
-  e.target.src =
-    "https://giphy.com/gifs/looking-looney-tunes-searching-26n6WywJyh39n1pBu";
-};
-
+// img.onerror = (e) => {
+//   e.target.src =
+//     "https://giphy.com/gifs/looking-looney-tunes-searching-26n6WywJyh39n1pBu";
+// }
 //Event listeners
 /*btn1.addEventListener("click", fun1);------For the click me button*/
 //Weather event listeners
@@ -78,6 +78,12 @@ function fetchWeather() {
   fetchString = joined;
   console.log(joined);
   fetch(fetchString)
+    /* //between this is a trial
+  if (response.status == 404 ) {
+    response = fetchData(hardCodedUrl)
+   } else {
+  
+  //between this is a trial*/
     .then((response) => response.json())
     // .then((data) => console.log(data["weather"][0].description);
     // console.log("first one"));
@@ -93,18 +99,19 @@ function fetchWeather() {
       let temp2Decimal = kelvinTemp + tempConversion; /*+"oc"*/
 
       let tempRounded = temp2Decimal.toFixed(2);
-      cityTemp.innerHTML = tempRounded;
+      cityTemp.innerHTML = tempRounded + "oC";
 
       //cityTemp.innerHTML = kelvinTemp + tempConversion + "oC";
 
-      cityCloudCover.innerHTML = "cloud cover " + data.clouds.all + "%";
+      cityCloudCover.innerHTML = "Cloud cover is " + data.clouds.all + "%";
 
       //cityWind.innerHTML = "wind speed aaaa";
 
       console.log("cloud cover " + data.clouds.all + "%");
       console.log("hello");
-    });
+    }); /*curly brace to the right is for the ELSE */
 }
+//}
 
 // //WORKING retreive object from openWeatherMAP ----------BELOW
 // fetch(
