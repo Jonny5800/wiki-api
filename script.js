@@ -64,6 +64,7 @@ function invokeGifSearch() {
     .then(function (response) {
       img.src = response.data.images.original.url;
     });
+  //.catch( error => console.log("error"))
   //.catch(){} Work out how to use this as a default image/error message in case no GIF is found
 }
 function fetchWeather() {
