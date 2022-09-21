@@ -32,13 +32,18 @@ const img = document.querySelector("img");
 //Event listeners
 /*btn1.addEventListener("click", fun1);------For the click me button*/
 //Weather event listeners
-searcher.addEventListener("click", invokeGifSearch);
-searcher.addEventListener("click", fetchWeather);
 
+/**ON CLICK TRIAL BELOW */
+// searcher.addEventListener("click", invokeGifSearch);
+// searcher.addEventListener("click", fetchWeather);
+(searcher.onclick = invokeGifSearch()), fetchWeather();
+
+/**ON CLICK TRIAL ABOVE */
 userInput.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
     // event.preventDefault(); (suggested but seems not needed)
-    document.getElementById("search-button").click();
+    //document.getElementById("search-button").click();
+    searcher.click();
   }
 });
 
@@ -51,7 +56,8 @@ userInput.addEventListener("keypress", function (event) {
 //Weather click function
 function invokeGifSearch() {
   weatherTextBoxConst.innerHTML =
-    "A GIF of " + userInput.value + " will play below";
+    //"A GIF of " + userInput.value + " will play below";
+    `A GIF of ${userInput.value} will play below`;
 
   let giphySearch =
     "https://api.giphy.com/v1/gifs/translate?api_key=hwRcQwF2Fc2MiIwqGFOrXv9a2KI2ECXQ&s=" +
@@ -72,12 +78,13 @@ function fetchWeather() {
   console.log(location + "...location");
   let fetchString = "";
 
-  let firstBit = "http://api.openweathermap.org/data/2.5/weather?q=";
-  let secondBit = location;
-  let thirdBit = ",uk&APPID=45965e86278e1d1806a35a380a87eeea";
-  let joined = firstBit.concat("", secondBit, "", thirdBit);
-  fetchString = joined;
-  console.log(joined);
+  // let firstBit = "http://api.openweathermap.org/data/2.5/weather?q=";
+  // let secondBit = location;
+  // let thirdBit = ",uk&APPID=45965e86278e1d1806a35a380a87eeea";
+  /*let joined*/ fetchString = `http://api.openweathermap.org/data/2.5/weather?q= ${location} ,uk&APPID=45965e86278e1d1806a35a380a87eeea`;
+  // //let joined = firstBit.concat("", secondBit, "", thirdBit);
+  fetchString; //= joined;
+  //console.log(joined);
   fetch(fetchString)
     /* //between this is a trial
   if (response.status == 404 ) {
