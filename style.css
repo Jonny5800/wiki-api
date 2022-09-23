@@ -8,21 +8,6 @@
   margin: 0 auto;
   width: 300px;
 }
-.header {
-  display: flex;
-  justify-content: space-between;
-}
-.search-bar {
-  margin: 20px auto;
-  /*    text-align: center;*/
-}
-
-.output {
-  font-size: 20px;
-  height: 100px;
-  width: 150px;
-  border: red solid 1px;
-}
 
 .weather-output {
   font-size: 20px;
@@ -33,31 +18,23 @@
   text-align: center;
 }
 
-.buttons {
-  color: blue;
-  width: 400px;
-  margin: 0px 10px;
-}
-
 .image-div {
   display: flex;
   height: 300px;
   width: 300px;
 }
+
 #output-div {
   margin: 0 auto;
   padding: center;
 }
+
 #the-gif {
   max-width: 300px;
   align-items: center;
   justify-content: center;
-  /*margin: 0 auto;*/
-
-  /*max-height: auto;*/
 }
 
 #search-button {
-  color: red;
   color: blue;
 }
