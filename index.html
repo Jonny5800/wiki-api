@@ -10,8 +10,17 @@
 </head>
 <body>
     <div class="container">
+
+        <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Will be country select</button>
+            <div id="myDropdown" class="dropdown-content">
+              <a href="#">UK</a>
+              <a href="#">France</a>
+              <a href="#">Spain</a>
+            </div>
+          </div>
             
-            <input type="text" id="search-bar" name="the-bar" placeholder="Search a city"/>
+            <input type="text" id="search-bar" name="the-bar" placeholder="Search a UK city"/>
             <button id="search-button" onclick="fetchWeather(); invokeGifSearch()" >   SEARCH HERE </button>
             
             <div id="output-div">
