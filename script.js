@@ -17,33 +17,27 @@ const cityTemp = document.getElementById("city-temp");
 const cityCloudCover = document.getElementById("city-cloud-cover");
 const imageVariable = document.querySelector("img");
 
+function logCountry() {
+  var select = document.getElementById("country-list");
+  const trying = select.options[select.selectedIndex].text;
+  console.log("the selected value is " + trying);
+}
+
 userInput.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
     searcher.click();
+    var text = select.options[select.selectedIndex].text;
+    console.log(text);
   }
 });
 
+//const dropSelection = document.getElementById("myDropdown").classList.toggle;
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
-window.onclick = function (event) {
-  if (!event.target.matches(".dropbtn")) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains("show")) {
-        openDropdown.classList.remove("show");
-        // console.log(dropdowns[i].textContent);
-        // console.log(openDropdown.textContent);
-        console.log(dropdowns.length.textContent);
-      }
-    }
-  }
-};
-
 //Weather click function
+
 function invokeGifSearch() {
   weatherTextBoxConst.innerHTML = `A GIF of ${userInput.value} will play below`;
   let giphySearch =
@@ -77,13 +71,14 @@ function fetchWeather() {
 
       let temp2Decimal = kelvinTemp + tempConversion;
       let tempRounded = temp2Decimal.toFixed(2);
+
       let tempUnit = "O".sup();
       cityTemp.innerHTML = tempRounded + tempUnit + "C";
 
       cityCloudCover.innerHTML = "Cloud cover is " + data.clouds.all + "%";
       console.log("cloud cover " + data.clouds.all + "%");
-    })
-    .catch(function () {
+    });
+  /*.catch(function () {
       console.log("this prints when city not found");
       let errorGifSearch =
         "https://api.giphy.com/v1/gifs/translate?api_key=hwRcQwF2Fc2MiIwqGFOrXv9a2KI2ECXQ&s=" +
@@ -98,7 +93,7 @@ function fetchWeather() {
           cityTemp.innerHTML = "Searching again";
           cityCloudCover.innerHTML = "(Maybe a typo)";
         });
-    });
+    });*/
 }
 
 const countryList = [
