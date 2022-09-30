@@ -2,46 +2,29 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* border: 1px black solid;*/
+  border: 1px black solid;
 }
+/*
 .container {
   margin: 0 auto;
   width: 300px;
 }
-
-.weather-output {
-  font-size: 20px;
-  height: 100px;
-  width: 150px;
-  /*border: blue solid 1px;*/
-  margin: 0 auto;
-  text-align: center;
-}
-
-.image-div {
-  display: flex;
-  height: 300px;
-  width: 300px;
-}
-
+*/
+/*
 #output-div {
   margin: 0 auto;
   padding: center;
 }
+*/
 
-#the-gif {
-  max-width: 300px;
-  align-items: center;
-  justify-content: center;
-}
-
+/*
 #search-button {
   color: blue;
 }
 
 /************/
 
-.dropbtn {
+/*.dropbtn {
   background-color: #3498db;
   color: white;
   padding: 16px;
@@ -82,4 +65,52 @@
 
 .show {
   display: block;
+}
+
+/************************************************/
+
+#list-search_div {
+  display: flex;
+  justify-content: center;
+  /*margin: auto;*/
+  /*background-color: blue;*/
+}
+
+#drop-list {
+  display: flex;
+  text-align: center;
+}
+
+#button_div {
+  display: flex;
+  justify-content: center;
+}
+
+#output-div {
+  display: flex;
+  flex-direction: column;
+}
+.weather-output {
+  font-size: 20px;
+  height: 100px;
+  width: 150px;
+  /*border: blue solid 1px;*/
+  margin: 0 auto; /*centres all boxes*/
+  text-align: center; /*centers text horizontally*/
+  align-items: center;
+  justify-content: center;
+}
+
+.image-div {
+  /*display: flex;*/
+
+  height: 300px;
+  width: 300px;
+}
+
+#the-gif {
+  /*max-width: 300px;*/
+
+  justify-content: right;
+  text-align: right;
 }

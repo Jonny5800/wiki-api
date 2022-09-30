@@ -15,7 +15,15 @@ const weatherTextBoxConst = document.getElementById("weatherTextBox");
 const cityWind = document.getElementById("city-wind");
 const cityTemp = document.getElementById("city-temp");
 const cityCloudCover = document.getElementById("city-cloud-cover");
+const weatherDescription = document.getElementById("city-description");
 const imageVariable = document.querySelector("img");
+
+/**********/
+cityTemp.innerHTML = "this is the temp";
+weatherTextBoxConst.innerHTML = `A GIF will play`;
+cityWind.innerHTML = "Wind speed ";
+cityCloudCover.innerHTML = "Cloud cover is ";
+/**/
 
 userInput.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
@@ -62,7 +70,8 @@ function fetchWeather() {
     .then((response) => response.json())
 
     .then(function (data) {
-      console.log(data.name);
+      console.log(data.name + " data dot name");
+      console.log(data);
 
       let kelvinTemp = data.main.temp;
       let tempConversion = -273.15;
@@ -78,6 +87,10 @@ function fetchWeather() {
 
       cityCloudCover.innerHTML = "Cloud cover is " + data.clouds.all + "%";
       console.log("cloud cover " + data.clouds.all + "%");
+
+      //ADDING WEATHER DESCRIPTION CAUSES AN ERROR SOMEHOW
+      //weatherDescription.innerHTML = data;
+      // console.log(weatherDescription + "  DESCRIPTION");
     })
     .catch(function () {
       console.log("this prints when city not found");
