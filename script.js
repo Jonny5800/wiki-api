@@ -18,7 +18,7 @@ const cityCloudCover = document.getElementById("city-cloud-cover");
 const weatherDescription = document.getElementById("city-description");
 const imageVariable = document.querySelector("img");
 
-/**********/
+/**********
 cityTemp.innerHTML = "this is the temp";
 weatherTextBoxConst.innerHTML = `A GIF will play`;
 cityWind.innerHTML = "Wind speed ";
@@ -61,11 +61,41 @@ function logCountry() {
   console.log("the selected value is " + selectedCountry);
   //return selectedCountry;
 }
+
+// fetch(
+//   "https://timeapi.io/api/TimeZone/coordinate?latitude=18.0417&longitude=-77.5071"
+// )
+//   .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (data) {
+//     console.log(data);
+//   })
+//   .catch(function () {
+//     console.log("Booo");
+//   });
+
+// curl - X 'GET' \
+//   'https://timeapi.io/api/TimeZone/coordinate?latitude=18.0417&longitude=-77.5071' \
+// -H 'accept: application/json'
+
+// const timeSearch =
+//   "https://timeapi.io/api/TimeZone/coordinate?latitude=18.0417&longitude=-77.5071";
+// fetch(timeSearch)
+//   .then(function (reply) {
+//     return reply.json();
+//   })
+//   .then(function (thing) {
+//     console.log(thing);
+//   });
+let fetchString1 = "";
+let fetchString2 = "";
+
 function fetchWeather() {
   let location = userInput.value;
   console.log(location + "...location");
-  let fetchString1 = `http://api.openweathermap.org/data/2.5/weather?q= ${location},uk&APPID=45965e86278e1d1806a35a380a87eeea`;
-  let fetchString2 = `http://api.openweathermap.org/data/2.5/weather?q= ${location},${selectedCountry}&APPID=45965e86278e1d1806a35a380a87eeea`;
+  fetchString1 = `http://api.openweathermap.org/data/2.5/weather?q= ${location},uk&APPID=45965e86278e1d1806a35a380a87eeea`;
+  fetchString2 = `http://api.openweathermap.org/data/2.5/weather?q= ${location},${selectedCountry}&APPID=45965e86278e1d1806a35a380a87eeea`;
   fetch(fetchString2)
     .then((response) => response.json())
 
@@ -77,16 +107,18 @@ function fetchWeather() {
       let tempConversion = -273.15;
       console.log(kelvinTemp + tempConversion + "oC");
 
-      cityWind.innerHTML = "Wind speed " + data.wind.speed + "mph";
+      cityWind.innerHTML = "Wind speed: " + data.wind.speed + "mph";
 
       let temp2Decimal = kelvinTemp + tempConversion;
       let tempRounded = temp2Decimal.toFixed(2);
 
       let tempUnit = "O".sup();
-      cityTemp.innerHTML = tempRounded + tempUnit + "C";
+      cityTemp.innerHTML = "Temperature: " + tempRounded + tempUnit + "C";
 
-      cityCloudCover.innerHTML = "Cloud cover is " + data.clouds.all + "%";
+      cityCloudCover.innerHTML = "Cloud cover:    " + data.clouds.all + "%";
       console.log("cloud cover " + data.clouds.all + "%");
+      console.log(data.coord.lon + " longitude");
+      console.log(data.coord.lat + " latitude");
 
       //ADDING WEATHER DESCRIPTION CAUSES AN ERROR SOMEHOW
       //weatherDescription.innerHTML = data;
