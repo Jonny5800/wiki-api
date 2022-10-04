@@ -8,11 +8,6 @@
 #list-search_div {
   display: flex;
   justify-content: center;
-  /*margin: auto;*/
-  /*background-color: blue;*/
-}
-
-#drop-list {
 }
 
 #button_div {
@@ -24,24 +19,21 @@
   display: flex;
   flex-direction: column;
 }
+*p {
+  color: red;
+}
 .weather-output {
   font-size: 20px;
-  height: 60px;
+  height: 50px;
   width: 200px;
-  /*border: blue solid 1px;*/
-  margin: 0 auto; /*centres all boxes*/
-  text-align: center; /*centers text horizontally*/
-  align-items: center;
+  margin: 0 auto;
+  text-align: center;
   justify-content: center;
+  vertical-align: top;
 }
 
 .image-div {
   text-align: center;
-  /*border: 1px solid red;*/
-}
-
-#the-gif {
-  /*border: 1px solid blue;*/
 }
 
 #country-list {
@@ -50,6 +42,8 @@
 }
 #search-bar {
   margin: 10px 7px;
+  border: 2px black solid !important;
+  border-radius: 5px;
 }
 ::placeholder /*keep directly above top three class*/ {
   color: blue;
@@ -73,20 +67,22 @@
 .header {
   display: flex;
   justify-content: center;
-  /*  flex-direction: row;
-  border: 5px orange;*/
 }
 #list-search_div {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  border: 1px solid green;
 }
 .left-header-div {
   flex: 30.3%;
   min-width: 200px;
-  border: 1px solid red;
+  /*border: green solid 1px;*/
 }
+.select-div {
+  /*border: red solid 1px;*/
+  justify-content: flex-start;
+}
+
 #left-header-text {
   justify-content: center;
   margin: 10px 7px;
@@ -102,27 +98,66 @@
 .right-header-div {
   flex: 30.3%;
   min-width: 200px;
+  justify-content: center;
 }
-#right-header-text {
-  color: green;
-}
+
 #country-list {
   text-align: center;
-  color: red;
-  border: 1px blue solid;
+  color: blue;
+  border-radius: 5px;
 }
 #search-bar {
   text-align: center;
-  border: 1px green solid;
 }
+
+.left-mid-div {
+  display: flex;
+}
+
 @media (max-width: 800px) {
   #list-search_div {
     flex-direction: column;
   }
 }
 
+@media (max-width: 850px) {
+  .left-mid-div {
+    flex-direction: column;
+  }
+  #left-header-text {
+    margin-bottom: 3px;
+  }
+  #country-list {
+    margin-top: 2px;
+  }
+  .left-mid-div {
+    border: 2px solid black !important;
+    border-radius: 5px !important;
+  }
+}
+
+@media (max-width: 850px) {
+  .right-header-div {
+    display: flex;
+    align-items: center;
+  }
+}
+
 @media (max-width: 100vw) {
   #the-gif {
     max-width: 80vw;
+    max-height: 40vh;
   }
 }
+
+* {
+  border: none;
+}
+
+/*
+.left-header-text {
+  margin-bottom: 3px;
+}
+#country-list {
+  margin-top: 2px;
+}*/
