@@ -1,9 +1,3 @@
-/*
-User experience
-  - suggetion for weather types eg rain = umbralla, sun = sunglassed etc
- */
-
-//Weather search variables
 const searcher = document.getElementById("search-button");
 const userInput = document.getElementById("search-bar");
 const weatherTextBoxConst = document.getElementById("weatherTextBox");
@@ -81,10 +75,6 @@ function fetchWeather() {
       console.log("cloud cover " + data.clouds.all + "%");
       console.log(data.coord.lon + " longitude");
       console.log(data.coord.lat + " latitude");
-
-      //ADDING WEATHER DESCRIPTION CAUSES AN ERROR SOMEHOW
-      //weatherDescription.innerHTML = data;
-      // console.log(weatherDescription + "  DESCRIPTION");
     })
     .catch(function () {
       console.log("This prints when the city/town is not found of mistyped");

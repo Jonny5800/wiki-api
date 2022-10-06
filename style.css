@@ -2,9 +2,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  border: 1px black solid;
+  /*border: 1px black solid;*/
 }
 
+.container {
+  margin-top: 7.5vh;
+}
 #list-search_div {
   display: flex;
   justify-content: center;
@@ -19,9 +22,7 @@
   display: flex;
   flex-direction: column;
 }
-*p {
-  color: red;
-}
+
 .weather-output {
   font-size: 20px;
   height: 50px;
@@ -118,6 +119,10 @@
   #list-search_div {
     flex-direction: column;
   }
+  #search-bar {
+    width: 255px;
+    margin: 10px 0px;
+  }
 }
 
 @media (max-width: 850px) {
@@ -134,9 +139,6 @@
     border: 2px solid black !important;
     border-radius: 5px !important;
   }
-}
-
-@media (max-width: 850px) {
   .right-header-div {
     display: flex;
     align-items: center;
@@ -150,9 +152,9 @@
   }
 }
 
-* {
+/** {
   border: none;
-}
+}*/
 
 /*
 .left-header-text {
