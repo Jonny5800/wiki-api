@@ -57,7 +57,6 @@ function fetchWeather() {
 
     .then(function (data) {
       console.log(data.name + " data dot name");
-      console.log(data);
 
       kelvinTemp = data.main.temp;
       tempConversion = -273.15;
@@ -75,6 +74,7 @@ function fetchWeather() {
       console.log("cloud cover " + data.clouds.all + "%");
       console.log(data.coord.lon + " longitude");
       console.log(data.coord.lat + " latitude");
+      console.log(data.weather[0].main);
     })
     .catch(function () {
       console.log("This prints when the city/town is not found of mistyped");
@@ -93,3 +93,34 @@ function fetchWeather() {
         });
     });
 }
+
+/*WORKING ON PIXABAY */
+/*
+let pixResponse = "";
+function weatherAppearance() {
+  fetch(
+    "https://pixabay.com/api/?key=30417760-f78e48c9241f4b395cbc769eb=yellow+flowers&image_type=photo"
+  );
+  then(function (pixResponse) {
+    return pixResponse.json();
+  }).then(function (pixResponse) {
+    console.log("this will be the pix response");
+  });
+}
+*/
+
+/*
+var API_KEY = "30417760-f78e48c9241f4b395cbc769eb";
+var URL =
+  "https://pixabay.com/api/?key=" +
+  API_KEY +
+  "&q=" +
+  encodeURIComponent("red roses");
+$.getJSON(URL, function (data) {
+  if (parseInt(data.totalHits) > 0)
+    $.each(data.hits, function (i, hit) {
+      console.log(hit.pageURL);
+      console.log("its partly working so far");
+    });
+  else console.log("No hits");
+})*/
